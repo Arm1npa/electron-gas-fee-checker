@@ -109,4 +109,3 @@ This will package your Electron app for your operating system.
 
 License
 This project is licensed under the MIT License.
->>>>>>> dfd62c00c9d033b58957d76da6ee21f31f4363ef
