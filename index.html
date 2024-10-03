@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gas Fee & ETH Price Checker</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background-color: #121212; /* Dark background */
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #e0e0e0; /* Light text */
+      }
+
+      .card {
+        margin-top: 50px;
+        background-color: #1e1e1e; /* Dark card background */
+        border: 1px solid #333; /* Border to separate cards */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Slight shadow */
+      }
+
+      .card-title {
+        color: #bb86fc; /* Light purple for titles */
+      }
+
+      .spinner {
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-left-color: #bb86fc; /* Light purple spinner */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      .loading-text {
+        text-align: center;
+        margin-top: 10px;
+        color: #a0a0a0; /* Grey text for loading */
+      }
+
+      .error-text {
+        color: #cf6679; /* Red for error messages */
+        text-align: center;
+      }
+
+      /* Add hidden class to toggle visibility */
+      .hidden {
+        display: none !important;
+      }
+
+      .refresh-btn {
+        margin-top: 20px;
+      }
+
+      /* Added classes for up and down indicators */
+      .up {
+        color: green;
+      }
+
+      .down {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <!-- Gas Price Section -->
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <i class="fas fa-gas-pump"></i> Gas Fees
+              </h5>
+              <div id="gasPriceContainer">
+                <div id="gasPriceLoading" class="spinner"></div>
+                <div id="gasPrice" class="hidden"></div>
+                <p class="loading-text" id="gasPriceLoadingText">
+                  Fetching gas prices...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- ETH Price Section -->
+          <div class="card mt-4">
+            <div class="card-body text-center">
+              <h5 class="card-title">
+                <i class="fab fa-ethereum"></i> Ethereum Price
+              </h5>
+              <div id="ethPriceContainer">
+                <div id="ethPriceLoading" class="spinner"></div>
+                <div id="ethPrice" class="hidden"></div>
+                <p class="loading-text" id="ethPriceLoadingText">
+                  Fetching ETH price...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Refresh Button -->
+          <div class="text-center refresh-btn">
+            <button
+              id="refreshButton"
+              class="btn btn-primary"
+              onclick="refreshData()"
+            >
+              <i class="fas fa-sync-alt"></i> Refresh Data
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and Dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Renderer Script -->
+    <script src="renderer.js"></script>
+  </body>
+</html>
