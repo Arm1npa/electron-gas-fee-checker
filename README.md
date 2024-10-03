@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # Gas Fee and ETH Price Checker
 
 A desktop application built with **Electron** and **Axios** that allows users to check the current Ethereum gas fees and the real-time price of Ethereum (ETH). This application fetches live data from APIs, providing users with up-to-date information in a user-friendly interface.
