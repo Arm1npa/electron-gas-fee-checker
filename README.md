@@ -24,7 +24,7 @@ Clone the repository:
 
 bash
 Copy code
-git clone https://github.com/Arm1npa/Gas_fee-checker.git
+git clone https://github.com/Arm1npa/electron-gas-fee-checker.git
 Navigate into the project folder:
 
 bash
